@@ -1,0 +1,75 @@
+Name: 성명
+Username: 사용자 로그인ID
+User alias: 사용자ID Alias
+Useralias: 사용자ID Alias
+User: 사용자
+User creation: 사용자 등록
+User list: 사용자 목록
+User edit: 사용자 수정
+
+Password: 비밀번호
+Repeat password: 비밀번호 확인
+
+Login: 로그인
+Invalid credentials: 로그인/비밀번호 이 잘못되었습니다
+    
+Expert creation: 등록하기
+Expert: 전문가
+Expert list: 전문가 회원 목록
+Expert edit: 전문가 수정
+
+Address: 주소
+Package: 패키지
+Email: 이메일
+Phone: 전화번호
+Payment: 결재
+Price: 가격
+Amount: 금액
+Registration number: 등록번호
+Registration date: 등록날짜
+Creation date: 등록날짜
+Creationdate: 등록날짜
+    
+Actions: 액션
+Create: 등록
+Submit: 등록
+Show: 보기
+show: 보기
+Edit: 수정
+edit: 수정
+Delete: 삭제
+Update: 업데이트
+Create a new entry: 등록하기
+Back to the list: 목록에
+
+Description: 노트 / 조회
+Status: 상태
+Package: 패키지
+Packages: 패키지
+Package list: 패키지 목록
+Package edit: 패키지 수정
+
+Payment: 결재
+Payments: 결재
+Payment list: 결재 목록
+Payment edit: 결재 수정
+Transaction code: 트랜잭션 코드
+    
+Recent News: 최근소식
+Recent News list: 최근소식 목록
+Recent News edit: 최근소식 수정
+Recent News creation: 등록하기
+Title: 제목
+Content: 내용
+Field: 분야
+
+Notice: 공지사항
+Notice list: 공지사항 목록
+Notice edit: 공지사항 수정
+Notice creation: 등록하기
+
+Recent Cases: 최근사례
+Recent Cases list: 최근사례 목록
+Recent Cases edit: 최근사례 수정
+Recent Cases creation: 등록하기
+Is representative case: 대표사례로 설정

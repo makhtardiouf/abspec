@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}전문가닷컴 AbSpecialist{% endblock %} || Admin </title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />        
+        {% block stylesheets %}                        
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />                   
+            <link rel="stylesheet" href="{{ asset('css/expertpage.css') }}" />  
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>                    
+        {% endblock %}
+        {####  ADMIN BASE LAYOUT #}
+    </head>
+    <body>
+        <div class="container-fluid">
+            {% block navigation %}
+                <nav class="navbar navbar-default navbar-bg">
+                    <div class="row" style="width:100%;">  
+                        <div class="col-md-2 navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topNavBar">
+                                <span class="sr-only">Navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>                                                                   
+                        </div>
+                        <div class="col-md-8 collapse navbar-collapse" id="topNavBar" style="margin-top:80px; text-align: center;">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="{{ path('expert_list') }}" class="dropdown-toggle" data-toggle="dropdown" 
+                                       style="margin-right:50px; color: black;">Admin <b>관리</b>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ path('expert_list') }}">Experts | 전문가 관리</a></li>
+                                        <li><a href="{{ path('package') }}">Packages | 패키지 관리</a></li>
+                                        <li><a href="{{ path('payment') }}">Payments | 결재 관리</a></li>
+                                        <li><a href="{{ path('user_list') }}">Users | 회원 관리</a></li>
+                                    </ul>
+                                </li>                                                           
+                                <li><a href="{{ path('recentnews') }}" style="margin-right:50px;">최신뉴스</a></li>
+                                <li><a href="#" style="margin-right:50px; color: black;">사회활동</a></li> 
+                                <li><a href="#" style="margin-right:50px; color: black;">세미나/이벤트</a></li> 
+                                <li><a href="{{ path('notice') }}" style="margin-right:50px;">공지사항</a></li> 
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">     
+                                <li><a href="{{ path('experthome') }}">HOME</a></li>
+                                <li><a href="{{ path('fos_user_security_logout') }}">LOGOUT</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+                </nav>
+
+            {% endblock %}              
+
+            <!-- main content -->
+            <!--            <div class="row"><div class="col-md-12 expert_header"></div></div>-->
+            <div class="row expert_content">                    
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    {% block body %}  {% endblock %}            
+                </div>
+                <div class="col-md-2"></div>
+            </div>        
+
+            <!-- For index page only -->            
+            {% block indexcontent %}     {% endblock %}
+
+            {% block footer %}
+
+                <br><br>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" id="foot_menu1">                
+                        <a href="#">회사소개</a>  | 
+                        <a href="#">윤리경영</a>  | 
+                        <a href="#">고객센터</a>  | 
+                        <a href="#">인재채용</a>  | 
+                        <a href="#">오시는길</a>  | 
+                        <a href="#">사이트맵</a>             
+                    </div>
+                    <div class="col-md-2"></div>
+                </div> 
+
+                <div class="row"> 
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" id="foot_menu2">
+                        <a href="#" class="footer_item">개인정보취급방침</a>
+                        <a href="#" class="footer_item">이메일무단수집거부</a>
+                        <a href="#" class="footer_item">이용약관</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2"></div>
+
+                    <div class="col-md-8" id="foot_address">
+                        경기도 안양시 동안구 관양동 <span class="font ls0"> 1599-1</span> 
+                        샤르망 <span class="font ls0">2</span>차 <span class="font ls0">1202 </span> <span class="fz pt3">•</span>                         
+                        통신판매사업신고 : <span class="font ls0">2015</span>-경기-<span class="font ls0">0005</span>
+                        호 <span class="fz">•</span>  
+                        <span class="fz">•</span> 이메일 : <span class="font">makhtar.diouf@gmail.com</span>
+
+                        <div><br>
+                            <p><span class="font">Copyright &copy; 2015. 전문가닷컴 Able Specialists. All rights <a href="law/law_main_page.html" class="fc"> reserved</a></span> </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+            </div>
+        {% endblock %}
+    </div>
+</body>
+</html>

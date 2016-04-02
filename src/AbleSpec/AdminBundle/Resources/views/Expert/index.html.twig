@@ -1,0 +1,71 @@
+{% extends 'AbleSpecAdminBundle::base.html.twig' %}
+
+{% block body -%}
+    <h3>{% trans %}Expert list{% endtrans %}</h3>
+
+    <table class="table table-striped records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>{% trans %}Name{% endtrans %}</th>
+                <th>{% trans %}User alias{% endtrans %}</th>
+                    {# <th>{% trans %}Username{% endtrans %}</th>#}
+                    {#<th>{% trans %}Email{% endtrans %}</th>#}
+    <!--                <th>{% trans %}Address{% endtrans %}</th>-->
+    <!--                <th>{% trans %}Phone{% endtrans %}</th>-->
+    <!--                <th>{% trans %}Packages{% endtrans %}</th>-->
+                <th>{% trans %}Registration number{% endtrans %} </th>
+                    {# <th>{% trans %}Registration date{% endtrans %} </th>#}
+                <th>홈페이지생성여부</th>
+                <th>홈페이지생성</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('expert_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                    <td>{{ entity.name }}</td>
+
+                    {#      Follow the path by the expert's ID number; defined in AppBundle:DefaultController #}
+                    <td><a href="{{ path('experthome', {'id': entity.id }) }}">{{ entity.useralias }}</a></td>
+    <!--                <td>{#{{ entity.password }}#}Edit</td>-->
+                    {#   <td>{{ entity.email }}</td>#}
+       <!--                <td>{{ entity.address }}</td>-->
+       <!--                <td>{{ entity.phone }}</td>-->
+                    <!--                <td>...</td>-->
+                    <td>{{ entity.registrationNumber }}</td>
+                    {# <td>{% if entity.registrationDate %}{{ entity.registrationDate|date('Y.m.d H:i:s') }}{% endif %}</td>#}
+
+                    <!-- Homepage status: Y if the Expert has a login -->
+                    {% if entity.user %}
+                        <td>Y</td>
+                        <td><input type="button" value="마침" class="btn btn-default" disabled="true"></td>
+                    {% else %}
+                        <td>N</td>
+                        <td><input type="button" value="만들기" class="btn btn-primary"></td>
+                    {% endif %}
+
+                    <td>
+                        <ul class="nav nav-pills">
+                            <li>
+                                <a href="{{ path('expert_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                            </li>
+                            {#  No worries here, the controller only lets admin users to access this page #}
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <li>
+                                    <a href="{{ path('expert_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('expert_new') }}">
+        <input type="button" value="전문가 등록" class="btn btn-primary">
+    </a>
+
+{% endblock %}

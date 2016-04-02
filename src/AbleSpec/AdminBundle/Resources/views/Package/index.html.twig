@@ -1,0 +1,45 @@
+{% extends 'AbleSpecAdminBundle::base.html.twig' %}
+
+{% block body -%}
+    <h3>{% trans %}Package list{% endtrans %}</</h3>
+
+    <table class="table table-striped records_list">
+        <thead>
+            <tr>
+                <th>{% trans %}Id{% endtrans %}</th>
+                <th>{% trans %}Name{% endtrans %}</th>
+                <th>{% trans %}Description{% endtrans %}</th>
+                <th>{% trans %}Price{% endtrans %}</th>
+                <th>{% trans %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('package_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.price }}</td>
+                <td>
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="{{ path('package_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('package_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul class="nav nav-pills">
+        <li class="active">
+            <a href="{{ path('package_new') }}">
+                {% trans %}Create a new entry{% endtrans %}
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

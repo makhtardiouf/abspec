@@ -1,0 +1,18 @@
+{% extends 'AbleSpecExpertBundle::base.html.twig' %}
+
+{% block leftmenu %} {% include "AbleSpecExpertBundle:Notice:menu_notice.html.twig" %} {% endblock %} 
+
+{% block body -%}
+    <h4>{% trans %}Notice edit{% endtrans %}</h4>
+
+    {{ form(edit_form) }}
+
+        <ul class="nav nav-pills record_actions">
+    <li class="active">
+        <a href="{{ path('notice') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

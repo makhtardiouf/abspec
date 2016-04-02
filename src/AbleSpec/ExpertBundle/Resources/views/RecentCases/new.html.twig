@@ -1,0 +1,17 @@
+{% extends 'AbleSpecExpertBundle::base.html.twig' %}
+
+{% block leftmenu %} {% include "AbleSpecExpertBundle:RecentCases:menucases.html.twig" %} {% endblock %} 
+
+{% block body -%}
+    <h4>{% trans %}Recent Cases creation{% endtrans %}</h4>
+
+    {{ form(form) }}
+
+    <ul class="nav nav-pills record_actions">
+        <li class="active">
+            <a href="{{ path('recentcases') }}">
+                {% trans %}Back to the list{% endtrans %}
+            </a>
+        </li>
+    </ul>
+{% endblock %}

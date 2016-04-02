@@ -1,0 +1,16 @@
+{% extends 'AbleSpecExpertBundle::base.html.twig' %}
+
+{% block body -%}
+    <h3>{% trans %}User edit{% endtrans %}</h3>
+
+    {{ form(edit_form) }}
+
+    <ul class="nav nav-pills record_actions">
+        <li>
+            <a href="{{ path('user_list') }}">
+                {% trans %}Back to the list{% endtrans %}
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+{% endblock %}

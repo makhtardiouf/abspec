@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{# Home, Login page #}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/common2.css') }}" />           
+{% endblock %}
+
+{% block navigation %}  {% endblock %}
+{% block logo %}{% endblock %}
+{% block indexcontent %}
+    <div class="row">        
+        <div class="col-md-12 homepage_header">               
+        </div>               
+    </div>
+    <div class="row">  
+        <div class="col-md-12 main_menu_wrap" style="text-align: center;">
+            <a class="mm_item"> | </a>
+            <a href="#" class="mm_item" id="mm_law">법률전문가</a>
+            <a class="mm_item"> | </a>
+            <a href="#" class="mm_item" id="mm_medi">의료전문가</a>
+            <a class="mm_item"> | </a>
+            <a href="#" class="mm_item" id="mm_life">생활•기술전문가</a>
+            <a class="mm_item"> | </a>
+            <a href="#" class="mm_item" id="mm_edu">교육•예술전문가</a>
+            <a class="mm_item"> | </a>
+            <a href="#" class="mm_item" id="mm_adv">자문위</a>
+            <a class="mm_item"> | </a>
+            <a href="#" class="mm_item" id="mm_pub">사회공헌</a>
+        </div>
+    </div>
+
+    <div class='container'>
+        <!-- LOGIN -->        
+        <div class="row">                         
+            <div class="col-md-12 pull-left">
+                {#<form method="post" target="admin/admin_login.html"> #}              
+                {% block fos_user_content %}  
+                    <form method="post" action="{{ path('fos_user_security_check') }}" id="loginForm" name="loginForm"> 
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+                        <input type="text" id="username" name="_username" required="required" placeholder="ID"/>
+                        <input type="password" id="password" name="_password" required="required" placeholder="PASSWORD"/>
+                        <input type="submit" id="_submit" name="_submit" value="LOGIN"  style="margin-right: 10px;"/>
+
+                        <span id="gate_search_container">                
+                            <span id="gate_search_box">
+                                <!--- TO BE COMPLETED -->
+                                <form name="searchForm">
+                                    <input type="text" class="search_input" />
+                                    <input type="button" class="search_button" value="SEARCH" />  
+                                </form>
+                            </span>
+                        </span>  
+                    </form> 
+                    <br>
+                    <a href="" class="auth_btn btn btn-primary btn-sm">회원가입</a>
+                    <a href="{{ path('fos_user_resetting_request') }}" class="auth_btn btn btn-primary btn-sm">ID/PW 찾기</a>
+
+                    <input type="checkbox" id="remember_me" name="_remember_me"/> <span id="id_save">아이디 저장</span>
+
+                    {#  FOSUserBundle LOGIN #}                    
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <span class="alert alert-info" style="max-width:200px; margin:20px;">                           
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('expert_list') }}">
+                                {% elseif is_granted('ROLE_USER') %}                        
+                                    <a href="{{ path('experthome') }}">
+                                    {% endif %}
+                                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} </a>                                              
+                        </span>
+                    {% else %} 
+                        {% if error %}
+                            <span class="alert alert-danger" style="max-width:200px; margin:20px;">
+                                {{ error.messageKey|trans(error.messageData, 'security') }}
+                            </span>
+                        {% else %}
+                            <span class="alert alert-info" style="max-width:200px; margin:20px;">Please Login above</span> 
+                        {% endif %}
+                    {% endif %}               
+
+                    {% for type, messages in app.session.flashBag.all %}
+                        {% for message in messages %}
+                            <div class="{{ type }}">
+                                {{ message|trans({}, 'FOSUserBundle') }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}                        
+
+                </div>        
+            {% endblock %}              
+        </div>      
+        <br><br>      
+        <div class="row">           
+            <div class="col-md-12 text-center notice_wrap">
+                <a href="#"><b>공지사항</b></a>
+                {#{% if latestNews %}
+                    {{ latestNews.lastNotice | raw }} ... {{ latestNews.lastCase | raw }}  
+                {% else %}    #}                            
+                    <a href="#">• 2015-12-31  모든 사람들에게 꼭 필요했던 전문가 매칭 시스템이</a>
+                    <a href="#"> • 2015-12-31  오픈되었습니다. 많은 관심과 사랑을 부탁드립니다.</a>
+                    <a href="#">• 2015-12-31  경기도에 위치한 전문가 닷컴은 지난해 중순에...</a>   
+               {# {% endif %}#}
+            </div>            
+        </div>                        
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% set showFirstFooter = true %}
+    {{ parent() }}
+{% endblock %}

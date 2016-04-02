@@ -1,0 +1,39 @@
+{% extends 'AbleSpecExpertBundle::base.html.twig' %}
+
+{% block leftmenu %} {% include "AbleSpecExpertBundle:Notice:menu_notice.html.twig" %} {% endblock %} 
+
+{% block body -%}
+    <h4>{% trans %}Notice{% endtrans %} no.{{ entity.id }}</h4>
+
+    <table class="table table-striped record_properties">
+        <tbody>          
+            <tr>
+                <th>{% trans %}Title{% endtrans %}</th>
+                <td>{{ entity.title }}</td>
+            </tr>
+            <tr>
+                <th class="thwide">{% trans %}Creationdate{% endtrans %}</th>
+                <td>{{ entity.creationdate|date('Y.m.d') }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Content{% endtrans %}</th>
+                <td>{{ entity.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul class="nav nav-pills record_actions">
+        <li  class="active">
+            <a href="{{ path('notice') }}">
+                {% trans %}Back to the list{% endtrans %}
+            </a>
+        </li>
+        {# Show the edit button to authenticated users only. TODO: the owner of this particular page #}
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <li  class="active">
+                <a href="{{ path('notice_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+            </li>        
+            <li>{{ form(delete_form) }}</li>
+        {% endif %}    
+    </ul>
+{% endblock %}

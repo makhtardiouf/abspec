@@ -1,0 +1,15 @@
+{% extends 'AbleSpecAdminBundle::base.html.twig' %}
+
+{% block body -%}
+    <h3>{% trans %}Package creation{% endtrans %}</h3>
+
+    {{ form(form) }}
+
+        <ul class="nav nav-pills record_actions">
+    <li>
+        <a href="{{ path('package') }}">
+            {% trans %}Back to the list{% endtrans %}
+        </a>
+    </li>
+</ul>
+{% endblock %}

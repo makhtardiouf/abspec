@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: 3306
+    database_name: ablespecialist
+    database_user: ablespecialist
+    database_password: ablespecialist123
+    mailer_transport: sendmail
+    mailer_host: 127.0.0.1
+    mailer_user: root
+    mailer_password: null
+    secret: 8d15807233729a9bac3f2197ced6358cad1ff2cb

@@ -1,0 +1,61 @@
+{% extends 'AbleSpecExpertBundle::base.html.twig' %}
+
+{### Expert Notice #}
+
+{% block leftmenu %} {% include "AbleSpecExpertBundle:Notice:menu_notice.html.twig" %} {% endblock %} 
+
+{% block body %}          
+    <h4>{% trans %}Notice list{% endtrans %}</h4>
+
+    <table class="table table-striped records_list">
+        <thead>
+            <tr>
+                <th>{% trans %}No{% endtrans %}</th>               
+                <th class="thwide">{% trans %}Title{% endtrans %}</th>
+                <th class="thwide">{% trans %}Creation date{% endtrans %}</th>
+<!--                <th class="thwide">{% trans %}Content{% endtrans %}</th>-->
+                <th class="thwide">{% trans %}Actions{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td><a href="{{ path('notice_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                   
+                    <td>{{ entity.title }}</td>
+                    <td>{% if entity.creationdate %}{{ entity.creationdate|date('Y.m.d') }}{% endif %}</td>
+                    {# <td>{{ entity.content }}</td> #}
+                    <td>
+                        <ul class="nav nav-pills">
+                            <li>
+                                <a href="{{ path('notice_show', { 'id': entity.id }) }}">{% trans %}show{% endtrans %}</a>
+                            </li>
+                            {# Show the edit button to authenticated users only #}
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                <li>
+                                    <a href="{{ path('notice_edit', { 'id': entity.id }) }}">{% trans %}edit{% endtrans %}</a>
+                                </li>
+                            {% endif %}                                       
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {# Show the create button to authenticated users only. TODO: the owner of this particular page #}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a href="{{ path('notice_new') }}">
+                    {% trans %}Create a new entry{% endtrans %}
+                </a>
+            </li>
+        </ul>
+    {% endif %}  
+</div>
+
+<div class="col-md-2">  </div>
+</div>
+<script>//loadBackgroundImage();</script>
+{% endblock %}

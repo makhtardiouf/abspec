@@ -1,0 +1,77 @@
+{% extends '::base.html.twig' %}
+
+{### Expert Homepage #}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />                      
+{% endblock %}
+{% block logo %} 
+    {# Show here the logo of each Expert #}
+{% endblock %}
+
+{% block main %}        
+   {# {% set latestNews = false % #}
+   
+    <div class="expert_center_space">
+        {% if is_granted("ROLE_USER") %}
+            <h5 style="font-style: italic;">Welcome {{ app.user.name }}</h5>
+        {% endif %}
+    </div>
+
+    <div class="row">
+        <div class="col-md-12" style="text-align: center; color: #fff;">
+            <h4 >국민과 함께하는 전문가닷컴의 법률전문가 홍길돈 입니다.</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1 "></div>
+        <div class="col-md-3 panel panel-default" style="margin-right:10px; min-height: 180px;">
+            <div class="panel-heading"><a href="{{ path('notice') }}" style="color:#44575D;"> 공지사항  Notice & News </a></div>
+
+            {# GET this content  from the DB #}
+            <div class="panel-body">
+                {% if latestNews %}
+                    {{ latestNews.lastNotice | raw }}
+                {% else %}
+                    공지사항 이 없다...
+                {% endif %}
+            </div>
+        </div>
+        <!--        <div class="col-md-1 "></div>-->
+
+        <div class="col-md-3 panel panel-default" style="margin-right:10px; min-height: 180px;">
+            <div class="panel-heading"><a href="{{ path('recentcases') }}" style="color:#44575D;"> 최근사례  Recent Cases </a></div>
+
+            <div class="panel-body">
+                {% if latestNews %}
+                    {{ latestNews.lastCase | raw }}
+                {% else %}
+                    최근사례 이 없다...
+                {% endif %}
+            </div>
+        </div>
+
+        <!--             <div class="col-md-1 "></div>-->             
+        <div class="col-md-3 panel panel-default" style="min-height: 180px;">
+            <div class="panel-heading">이용고객 후기 </div>
+            <div class="panel-body">이용고객 후기 이 없다...
+            </div>
+        </div>
+        <div class="col-md-1 "></div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {# {% set pagefooter = false %}#}
+    {# 
+    No 회사소개...  
+    #}
+    {% if pagefooter %}
+        {{ pagefooter.contact | raw }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+
+{% endblock %}

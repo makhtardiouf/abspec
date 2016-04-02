@@ -1,0 +1,72 @@
+/**
+    Expert page's Recent news...etc
+    Created on : Oct 8, 2015, 8:20:03 PM
+    Author     : Makhtar Diouf
+    $Id$
+*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face{ 
+    font-family:'NanumBarunGothic'; 
+    src:url('../font/NanumBarunGothic.eot');
+    src:url('../font/NanumBarunGothic.eot?#iefix') format('embedded-opentype'),
+        url('../font/NanumBarunGothic.woff') format('woff');
+}
+
+@media only screen 
+and (max-device-width : 1440px) {   
+    body {
+        font-family:'NanumBarunGothic','나눔바른고딕','Naunm Gothic','Gotham', 'Arial', 'Dotum', Sans-serif; 
+        background-color:#9ECBD8;              
+    }  
+
+    .navbar-bg {background: url(../images/expert/header-bg1440px01.jpg) no-repeat left top; font-size:16px;}  
+    
+    .expert_header {min-height: 100px; color:#fff; text-align:center; padding-top:20px;
+                    background: url(../images/expert/header2-bg1440px01.jpg) no-repeat left top;}
+    
+    .expert_center_space {min-height: 315px;}
+}
+
+@media only screen 
+and (min-device-width : 1500px) { 
+    body {
+        font-family:'NanumBarunGothic','나눔바른고딕','Nanum Gothic','Gotham', 'Arial', 'Dotum', Sans-serif; 
+        background-color:#9ECBD8;         
+    }
+
+    .navbar-bg {background: url(../images/expert/header-bg1900px01.jpg) no-repeat left top; font-size:16px;}   
+    
+    .expert_header {min-height: 150px; color:#fff; text-align:center; padding-top:20px;
+                    background: url(../images/expert/header2-bg1900px01.jpg) no-repeat left top;}
+
+    .expert_center_space {min-height: 350px;}
+}
+
+.navbar {
+    border-radius: 2px;
+    margin: 0px; padding:0px;
+}
+.container-fluid {
+    background-color: #9ECBD8;
+}
+
+.expert_content {
+    min-height: 350px; padding:10px; background-color:#F9F8F2; /*#F5F8F9;  */
+     background: url(../images/expertbg01.png);
+}
+.expert_rightnav {
+    color:black; background-color:lightgray;
+}
+.thwide {
+ min-width: 80px;
+}
+textarea {min-height: 150px;}
+table {font-size:13px;}
+th { background-color:#EEEEEE;}
+
+.footer_item {color:#5d5e61; margin:20px; height:45px; line-height:45px;}
+#foot_menu1 {max-width:1200px; line-height:45px; height:45px; color:black; border-bottom:1px solid #cfd1d7;}
+#foot_menu1 a {color:#5d5e61; margin:20px; height:45px; line-height:45px;}
+#foot_menu2 { height:50px; line-height:50px; font-weight:bold;  font-family:'Naunm Gothic','Gotham', 'Arial', 'Dotum', Sans-serif;}
+#foot_address {font-size:12px; color:#5d5e61; /*background-color:#289BB3;*/ letter-spacing:-1px; line-height:18px;}
+.fc {font-size:12px; color:#5d5e61;margin:20px 0;}

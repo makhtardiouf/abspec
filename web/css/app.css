@@ -1,0 +1,54 @@
+/** 
+    Created on : Oct 6, 2015, 8:44:28 PM
+    Author     : Makhtar Diouf
+    $Id$
+*/
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face{ 
+    font-family:'NanumBarunGothic'; 
+    src:url('../font/NanumBarunGothic.eot');
+    src:url('../font/NanumBarunGothic.eot?#iefix') format('embedded-opentype'),
+        url('../font/NanumBarunGothic.woff') format('woff');
+}
+
+@media only screen 
+and (max-device-width : 1440px) {   
+    body {
+        font-family:'NanumBarunGothic','나눔바른고딕','Naunm Gothic','Gotham', 'Arial', 'Dotum', Sans-serif; 
+        background-color:#F9F8F2;
+        background:url(../images/expert/experthome-bg1440px03.jpg) no-repeat left top;
+        background-size: cover;
+    }  
+
+    .navbar-bg {background: url(../images/expert/header-bg1440px01.jpg) no-repeat left top; font-size:16px; padding: 0px; margin: 0px;}
+
+    .expert_center_space {min-height: 315px;}
+}
+
+@media only screen 
+and (min-device-width : 1500px) { 
+    body {
+        font-family:'NanumBarunGothic','나눔바른고딕','Nanum Gothic','Gotham', 'Arial', 'Dotum', Sans-serif; 
+        background-color:#F9F8F2;
+        background:url(../images/expert/experthome-bg1900px02.jpg) no-repeat left top;          
+        background-size: cover;
+    }
+    .navbar-bg {background: url(../images/expert/header-bg1900px01.jpg) no-repeat left top; font-size:16px;}
+
+    .expert_center_space {min-height: 350px;}   
+}
+
+.expertpage {  
+    background-color:#F7F8FA;    
+}
+
+textarea {min-height: 150px;}
+table {font-size:13px;}
+th { background-color:#EEEEEE;}
+
+.footer_item {color:#5d5e61; margin:20px; height:45px; line-height:45px;}
+#foot_menu1 {max-width:1200px; line-height:45px; height:45px; color:black; border-bottom:1px solid #cfd1d7;}
+#foot_menu1 a {color:#5d5e61; margin:20px; height:45px; line-height:45px;}
+#foot_menu2 { height:50px; line-height:50px; font-weight:bold; }
+#foot_address {font-size:12px; color:#5d5e61; /*background-color:#289BB3;*/ letter-spacing:-1px; line-height:18px;}
+.fc {font-size:12px; color:#5d5e61;margin:20px 0;}

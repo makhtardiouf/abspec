@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}전문가닷컴 AbSpecialist{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}" />        
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/expertpage.css') }}" />                       
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/app.js') }}"></script>           
+        {% endblock %}
+    </head>
+    <body>
+        {### BASE FOR Expert pages content, e.g. 사무실소개, 소식 news...etc #}
+
+        <div class="container-fluid">
+            {% block navigation %}
+                <nav class="navbar navbar-default navbar-bg">
+                    <div class="row" style="width:100%;">  
+                        <div class="col-md-2 navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topNavBar">
+                                <span class="sr-only">Navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>                                                                   
+                        </div>
+                        <div class="col-md-8 collapse navbar-collapse" id="topNavBar" style="margin-top:80px; text-align: center;">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="{{ path('recentnews') }}" class="dropdown-toggle" data-toggle="dropdown" 
+                                       style="margin-right:50px; color: black;">사무실 소개
+                                        <span class="caret"></span>
+                                    </a>
+                                    {# SHOULD make ADMIN see a different menu, by an include #}
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ path('recentnews') }}">최근소식</a></li>
+                                        <li><a href="#">대표사례</a></li>
+                                        <li><a href="{{ path('recentcases') }}">최근사례</a></li> 
+                                        <li><a href="{{ path('notice') }}">공지사항</a></li> 
+                                        <li><a href="#">찾아오시는 길</a></li> 
+                                    </ul>
+                                </li>
+                                <li><a href="#" style="margin-right:50px; color: black;">업무안내</a></li>
+                                <li><a href="#" style="margin-right:50px; color: black;">변호사 소개</a></li>
+                                <li><a href="#" style="margin-right:50px; color: black;">업무진행현황</a></li>
+                                <li><a href="#" style="margin-right:50px; color: black;">상담센터</a></li>                               
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                {# Only Logged in Expert should edit its page #}                                
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li><a href="{{ path('expert_list') }}">{#<span class="glyphicon glyphicon-log-in"></span>#}ADMIN</a></li>
+                                    {% endif %}
+
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <li><a href="{{ path('experthome') }}">HOME</a></li>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">SIGN OUT</a></li>
+                                    {% else %}				      
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div><!-- header_wrap -->
+                </nav>
+            {% endblock %}
+
+            <!-- main content -->    
+            <div class="row">
+                <div class="col-md-12 expert_header">
+                     {% if is_granted("ROLE_USER") %}
+                    <h5 style="font-style: italic;">Welcome {{ app.user.name }}</h5>
+                {% endif %}
+                    <h4>국민과 함께하는 전문가닷컴의 법률전문가 홍길돈 입니다</h4>
+                </div>                    
+            </div>
+            <div class="row expert_content"> 
+               
+                {# Vertical menu on the right #}
+                <div class="col-md-2">
+                    {% block leftmenu %}  {% endblock %}                                   
+                </div>
+                <div class="col-md-8">
+                    {% block body %}  {% endblock %}            
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+
+            <!-- For index/login page only -->            
+            {% block indexcontent %}     {% endblock %}
+
+            <!-- For Expert MyPage -->  
+            {% set showFirstFooter = false %}
+            {% block footer %}
+                <br>              
+                {% if showFirstFooter %}
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8" id="foot_menu1">                
+                            <a href="#">회사소개</a>  | 
+                            <a href="#">윤리경영</a>  | 
+                            <a href="#">고객센터</a>  | 
+                            <a href="#">인재채용</a>  | 
+                            <a href="#">오시는길</a>  | 
+                            <a href="#">사이트맵</a>             
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div> 
+                {% endif %}
+
+                <div class="row"> 
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" id="foot_menu2">
+                        <a href="#" class="footer_item">개인정보취급방침</a>
+                        <a href="#" class="footer_item">이메일무단수집거부</a>
+                        <a href="#" class="footer_item">이용약관</a>                        
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" id="foot_address">
+                        경기도 안양시 동안구 관양동 <span class="font ls0"> 1599-1</span> 
+                        샤르망 <span class="font ls0">2</span>차 <span class="font ls0">1202 </span> <span class="fz pt3">•</span>                         
+                        통신판매사업신고 : <span class="font ls0">2015</span>-경기-<span class="font ls0">0005</span>
+                        호 <span class="fz">•</span>
+                        <span class="fz">•</span> 이메일 : <span class="font">makhtar.diouf@gmail.com</span>
+
+                        <div><br><br>
+                            <p style="min-height:20px; color:black;">Copyright &copy; 2015. 
+                                <a href="law/law_main_page.html" class="fc">전문가닷컴 Able Specialists. All rights reserved</a>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a href="{{ path('expert_list') }}" style="margin:50px; color:#fff;">ADMIN</a>
+                                {% endif %}        
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            {% endblock %}         
+        </div>
+
+        {# Move this to the homepage #}
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <script>toggleLoginForm();</script>
+        {% endif %}
+    </body>
+</html>

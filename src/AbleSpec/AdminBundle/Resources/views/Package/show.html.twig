@@ -1,0 +1,41 @@
+{% extends 'AbleSpecAdminBundle::base.html.twig' %}
+
+{% block body -%}
+    <h3>{% trans %}Package{% endtrans %}</h3>
+
+    <table class="table table-striped record_properties">
+        <tbody>
+            <tr>
+                <th>{% trans %}Id{% endtrans %}</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Name{% endtrans %}</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Description{% endtrans %}</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>{% trans %}Price{% endtrans %}</th>
+                <td>{{ entity.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <ul class="nav nav-pills record_actions">
+        <li class="active">
+            <a href="{{ path('package') }}">
+                {% trans %}Back to the list{% endtrans %}
+            </a>
+        </li>
+        <li class="active">
+            <a href="{{ path('package_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
+{% endblock %}

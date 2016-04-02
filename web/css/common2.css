@@ -1,0 +1,60 @@
+@charset "utf-8";  /* Default is already utf-8 for html5 */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@font-face{ 
+    font-family:'NanumBarunGothic'; 
+    src:url('../font/NanumBarunGothic.eot');
+    src:url('../font/NanumBarunGothic.eot?#iefix') format('embedded-opentype'),
+        url('../font/NanumBarunGothic.woff') format('woff');
+}
+
+@media only screen 
+and (max-device-width : 1440px) {  
+   
+    .homepage_header {min-height:459px; background-image:url('../images/gate_page/main_img1440px.jpg'); background-repeat:no-repeat;}
+    
+    .main_menu_wrap {color:#fff; min-height:52px; background-image:url('../images/gate_page/main_menu_bg1440px.jpg'); background-repeat:no-repeat; background-color:#2B3C56;  background-size: cover;}
+
+    .mm_item {color:#B4C6E3; line-height:52px; font-size:20px; margin-right:10px; margin-top:10px; vertical-align:central; padding:20px;}
+}
+
+@media only screen 
+and (min-device-width : 1600px) {         
+
+    .homepage_header {min-height:607px; background-image:url('../images/gate_page/main_img.jpg'); background-repeat:no-repeat;}
+    
+    .main_menu_wrap {color:#fff; min-height:69px; background-image:url('../images/gate_page/main_menu_bg.jpg'); background-repeat:no-repeat; background-color:#2B3C56;}
+    
+    .mm_item {color:#B4C6E3; line-height:69px; font-size:20px; margin-right:10px; margin-top:10px; vertical-align:central; padding:20px;}
+}
+
+body {margin:0; padding:0;font-family:'NanumBarunGothic','??????','nanumgothic','Gotham', 'Arial', 'Dotum', Sans-serif; background:url(../images/bg_wrap.gif) repeat-x;}
+
+/** Makhtar adjustments */
+#username {width:200px; height:40px;  margin:20px 5px 10px 0; padding:8px; font-size:14px;  color:#939598; border:3px solid #cfd1d7; box-sizing:border-box; float:left;}
+#password {width:200px; height:40px;  margin:20px 0 10px 0; padding:8px;  font-size:14px;  color:#939598; border:3px solid #cfd1d7; box-sizing:border-box; }
+#_submit {width:126px; height:40px;margin:20px 0 5px 0; background-color:#263b5a; border-width: 0px; font-size:16px; color:#fff; text-align:center;}
+.auth_btn {min-width:80px; background-color:#acacac; border-color:#fff;}
+
+/*  From style.css */
+#gate_search_container {max-width:596px; height:auto;}
+#gate_search_box {min-width:596px; min-height:130px; margin:20px 0 0 0;}
+#gate_search_box .search_input {min-width:300px; height:42px; border:3px solid #cfd1d7; background:#fff; padding-left:8px;}
+#gate_search_box .search_button {min-width:120px; height:42px; background:#263b5a; border:none; color:#fff; font-weight:bold; font-size:16px; margin:0 0 0 6px;}
+
+.notice_wrap { background-color:#eee; line-height:35px; font-size:12px; margin-left:15px; 
+              border-top:1px solid #cfd1d7; border-bottom:1px solid #cfd1d7; overflow-x: hidden;}
+.notice_wrap a { margin-right:20px; line-height:30px; color:#5d5e61; }
+
+.footer_item {color:#5d5e61; margin:20px; height:45px; line-height:45px;}
+#foot_menu1 { line-height:45px; min-height:45px; color:black; border-bottom:1px solid #cfd1d7;}
+#foot_menu1 a {color:#5d5e61; margin:20px; height:45px; line-height:45px;}
+#foot_menu2 { line-height:50px; min-height:50px; font-weight:bold;}
+#foot_address {font-size:12px; color:#5d5e61; letter-spacing:-1px; line-height:18px;}
+
+.font {font-family:'Gotham', 'Arial', 'Naunm Gothic', 'Dotum', Sans-serif;}
+.fc {color:#5d5e61;}
+.ls0 {letter-spacing:0px;}
+
+/**#logo a {display:block; width:150px; height:100px; background-image:url('../images/gate_page/main_logo.png'); margin:50px auto; text-indent:-9999em;} */
+/**#copyright {font-size:12px; color:#5d5e61;margin:30px 0;}**/
+
